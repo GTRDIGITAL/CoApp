@@ -1,0 +1,103 @@
+{
+  "Name": "cerere",
+  "Description": "Returns the information of a Cerere record in JSON object format",
+  "HttpMethod": "GET",
+  "IsEnabled": true,
+  "OrderIndex": 42,
+  "CrossDomainPolicy": "PortalAliasesOnly",
+  "Input": [
+    {
+      "Name": "RecordId",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 0,
+      "Parameters": {},
+      "InputTypeStr": "text",
+      "Validations": [
+        {
+          "Data": "{\"Message\":\"RecordId is required.\"}",
+          "Type": "default-required",
+          "IsDeleted": false,
+          "IsEnabled": false,
+          "OrderIndex": 0,
+          "Metadata": {
+            "PAP_InternalIdentifier": "Api.InputField.RequiredValidator"
+          }
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "PlantAnApp.ReadEntity.32e2b635-940c-45a9-b3c7-863178ab055d",
+      "OrderIndex": 0,
+      "Parameters": {
+        "RecordId": "[RecordId]",
+        "OutputToken": "Record"
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.ReadEntity",
+        "EntityIdentifier": "32e2b635-940c-45a9-b3c7-863178ab055d",
+        "IsUidEnabled": "True"
+      }
+    },
+    {
+      "ActionType": "JsonObject",
+      "OrderIndex": 1,
+      "Parameters": {
+        "HttpCode": "200 OK",
+        "Fields": [
+          {
+            "name": "User",
+            "value": "[Record:User]"
+          },
+          {
+            "name": "Id",
+            "value": "[RecordId]"
+          },
+          {
+            "name": "Nume",
+            "value": "[Record:Nume]"
+          },
+          {
+            "name": "Prenume",
+            "value": "[Record:Prenume]"
+          },
+          {
+            "name": "Details",
+            "value": "[Record:Details]"
+          },
+          {
+            "name": "StartData",
+            "value": "[Record:StartData]"
+          },
+          {
+            "name": "EndData",
+            "value": "[Record:EndData]"
+          },
+          {
+            "name": "Type",
+            "value": "[Record:Type]"
+          },
+          {
+            "name": "Status",
+            "value": "[Record:Status]"
+          },
+          {
+            "name": "displayname",
+            "value": "[Record:displayname]"
+          }
+        ],
+        "Headers": []
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.Response"
+      }
+    }
+  ],
+  "OnErrorActions": []
+}
