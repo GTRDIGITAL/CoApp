@@ -1,0 +1,25 @@
+{
+  "id": 3,
+  "globalId": "81db45b7-7a19-4061-b0a6-a1100a23b5f1",
+  "namespace": {
+    "id": 1,
+    "globalId": "9b530975-66c3-48cc-b1dd-5abd3e539e5c",
+    "portalId": 0,
+    "name": "PAASysUpdates",
+    "description": "",
+    "isSystem": true
+  },
+  "name": "AppInstallChecker",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "language": "csharp",
+    "compiledRazorLocation": "host",
+    "additionalAssemblies": "",
+    "debug": false,
+    "type": "razor"
+  }
+}

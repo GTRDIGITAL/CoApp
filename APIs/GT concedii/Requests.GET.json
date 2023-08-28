@@ -1,0 +1,95 @@
+{
+  "Name": "Requests",
+  "Description": "Returns the information of a Requests record in JSON object format",
+  "HttpMethod": "GET",
+  "IsEnabled": true,
+  "OrderIndex": 52,
+  "CrossDomainPolicy": "PortalAliasesOnly",
+  "Input": [
+    {
+      "Name": "RecordId",
+      "IsDeleted": false,
+      "IsEnabled": true,
+      "OrderIndex": 0,
+      "Parameters": {},
+      "InputTypeStr": "text",
+      "Validations": [
+        {
+          "Data": "{\"Message\":\"RecordId is required.\"}",
+          "Type": "default-required",
+          "IsDeleted": false,
+          "IsEnabled": false,
+          "OrderIndex": 0,
+          "Metadata": {
+            "PAP_InternalIdentifier": "Api.InputField.RequiredValidator"
+          }
+        }
+      ]
+    }
+  ],
+  "Actions": [
+    {
+      "ActionType": "PlantAnApp.ReadEntity.8da08a58-d0a9-47e9-a383-302247a12697",
+      "OrderIndex": 0,
+      "Parameters": {
+        "RecordId": "[RecordId]",
+        "OutputToken": "Record"
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.ReadEntity",
+        "EntityIdentifier": "8da08a58-d0a9-47e9-a383-302247a12697",
+        "IsUidEnabled": "True"
+      }
+    },
+    {
+      "ActionType": "JsonObject",
+      "OrderIndex": 1,
+      "Parameters": {
+        "HttpCode": "200 OK",
+        "Fields": [
+          {
+            "name": "Id",
+            "value": "[RecordId]"
+          },
+          {
+            "name": "NoofrequestedDays",
+            "value": "[Record:NoofrequestedDays]"
+          },
+          {
+            "name": "StartDate",
+            "value": "[Record:StartDate]"
+          },
+          {
+            "name": "EndDate",
+            "value": "[Record:EndDate]"
+          },
+          {
+            "name": "Details",
+            "value": "[Record:Details]"
+          },
+          {
+            "name": "Status",
+            "value": "[Record:Status]"
+          },
+          {
+            "name": "EmployeeID",
+            "value": "[Record:EmployeeID]"
+          },
+          {
+            "name": "Type",
+            "value": "[Record:Type]"
+          }
+        ],
+        "Headers": []
+      },
+      "IsDisabled": false,
+      "ExecutionType": "OnExecute",
+      "Metadata": {
+        "PAP_InternalIdentifier": "Api.Response"
+      }
+    }
+  ],
+  "OnErrorActions": []
+}

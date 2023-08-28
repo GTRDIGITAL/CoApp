@@ -1,0 +1,24 @@
+{
+  "id": 21,
+  "globalId": "e4b76fac-fdbe-499f-9707-d7263514e2a8",
+  "namespace": {
+    "id": 4,
+    "globalId": "d93d3e5a-84ef-4109-9e1c-ea884f428da2",
+    "portalId": 0,
+    "name": "Employee",
+    "isSystem": false
+  },
+  "name": "GetDetails",
+  "description": "",
+  "parser": "<parser><type>string</type><replace>false</replace><decodeHtml>false</decodeHtml></parser>",
+  "defaultValue": "",
+  "cacheTime": 0,
+  "cacheLayer": "Global",
+  "src": {
+    "sql": "select * FROM app.employee\nwhere UserID = '[TknParams:UserId]' ",
+    "defaultColumn": "",
+    "columns": "",
+    "connectionString": "",
+    "type": "db"
+  }
+}
